@@ -16,6 +16,8 @@
     <string name="question_4_answer_3" translatable="false">60</string>
     <string name="button_check_answers_label">Check answers</string>
     <string name="button_reset_answers_label">Reset answers</string>
+    <string name="button_share_score_label">Share score</string>
     <string name="message_answer_all">Please answer to all questions!</string>
-    <string name="message_scores">Your score is <xliff:g id="scores">%d</xliff:g></string>
+    <string name="message_score">Your score is <xliff:g id="scores">%d</xliff:g></string>
+    <string name="message_share_score">Look, I just scored <xliff:g id="scores">%d</xliff:g> in quiz app.</string>
 </resources>

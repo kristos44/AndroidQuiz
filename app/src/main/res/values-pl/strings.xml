@@ -13,5 +13,7 @@
     <string name="button_check_answers_label">Sprawdź odpowiedzi</string>
     <string name="button_reset_answers_label">Resetuj odpowiedzi</string>
     <string name="message_answer_all">Proszę odpowiedzieć na wszystkie pytania!</string>
-    <string name="message_scores">Twój wynik to <xliff:g id="scores">%d</xliff:g></string>
+    <string name="message_score">Twój wynik to <xliff:g id="scores">%d</xliff:g></string>
+    <string name="message_share_score">Właśnie zdobyłe <xliff:g id="scores">%d</xliff:g> w aplikazji quiz.</string>
+    <string name="button_share_score_label">Udostępnij wynik</string>
 </resources>

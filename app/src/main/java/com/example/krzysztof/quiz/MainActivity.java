@@ -1,5 +1,6 @@
 package com.example.krzysztof.quiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    int scores = 0;
+    int score = 0;
     boolean questionNotAnswered = false;
 
     @Override
@@ -56,15 +57,16 @@ public class MainActivity extends AppCompatActivity {
         checkCheckboxQuestion(new ArrayList<>(Arrays.asList(R.id.question_3_answer_1, R.id.question_3_answer_2, R.id.question_3_answer_3)));
         checkRadioQuestion(R.id.question_4);
 
-        String message;
         if(questionNotAnswered) {
+            String message;
             message = getResources().getString(R.string.message_answer_all);
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         } else {
-            message = getResources().getString(R.string.message_scores, scores);
-            Button buttonSend = findViewById(R.id.button_check_answers);
-            buttonSend.setEnabled(false);
+            Intent intent = new Intent(this, ShareScoreActivity.class);
+            intent.putExtra("message_score", getResources().getString(R.string.message_score, score));
+            intent.putExtra("message_share_score", getResources().getString(R.string.message_share_score, score));
+            startActivity(intent);
         }
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     public void resetAnswers(View v) {
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             RadioButton radioButton = findViewById(checkedRadioButtonId);
 
             if (radioButton.getTag().toString().equals("true")) {
-                scores++;
+                score++;
             }
         } else {
             questionNotAnswered = true;
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(!checkboxAnswers.contains(false)) {
-            scores++;
+            score++;
         }
 
         if(!checkboxChecked.contains(true)) {
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         String answer = editText.getText().toString();
 
         if(answer.equals(correctAnswer)) {
-            scores++;
+            score++;
         } else if (answer.isEmpty()) {
             questionNotAnswered = true;
         }
