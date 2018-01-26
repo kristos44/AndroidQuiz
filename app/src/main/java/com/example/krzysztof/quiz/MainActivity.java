@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ShareScoreActivity.class);
             intent.putExtra("message_score", getResources().getString(R.string.message_score, score));
             intent.putExtra("message_share_score", getResources().getString(R.string.message_share_score, score));
+            score = 0;
             startActivity(intent);
         }
     }
