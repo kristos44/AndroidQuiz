@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
 
         outState.putInt("question1State", getRadioGroupState(R.id.question_1));
-//        EditText editText = findViewById(R.id.question_2_answer);
-//        outState.putString("question2State", editText.getText().toString());
         outState.putString("question2State", getEditTextState(R.id.question_2_answer));
         outState.putSerializable("question3State", (Serializable) getCheckBoxState(new ArrayList<>(Arrays.asList(R.id.question_3_answer_1, R.id.question_3_answer_2, R.id.question_3_answer_3))));
         outState.putInt("question4State", getRadioGroupState(R.id.question_4));
@@ -45,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
 
         restoreRadioGroupState(R.id.question_1, savedInstanceState.getInt("question1State"));
-//        EditText editText = findViewById(R.id.question_2_answer);
-//        editText.setText(savedInstanceState.getInt("question2State"));
         restoreEditTextState(R.id.question_2_answer, savedInstanceState.getString("question2State"));
         restoreCheckBoxState((Map)savedInstanceState.getSerializable("question3State"));
         restoreRadioGroupState(R.id.question_4, savedInstanceState.getInt("question4State"));
