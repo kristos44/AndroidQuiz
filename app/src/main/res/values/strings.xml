@@ -5,15 +5,15 @@
     <string name="question_1_answer_2">Blue Whale</string>
     <string name="question_1_answer_3">Rhino</string>
     <string name="question_2">How high is the Mount Everest in meters?</string>
-    <string name="question_2_correct_answer">8848</string>
-    <string name="question_3">Match all European cities?</string>
+    <string name="question_2_correct_answer" translatable="false">8848</string>
+    <string name="question_3">Match all european cities.</string>
     <string name="question_3_answer_1">Warsaw</string>
-    <string name="question_3_answer_2">Johannesburg</string>
+    <string name="question_3_answer_2" translatable="false">Johannesburg</string>
     <string name="question_3_answer_3">Wien</string>
-    <string name="question_4">How many stars there is on American flag?</string>
-    <string name="question_4_answer_1">50</string>
-    <string name="question_4_answer_2">52</string>
-    <string name="question_4_answer_3">60</string>
+    <string name="question_4">How many stars there is on american flag?</string>
+    <string name="question_4_answer_1" translatable="false">50</string>
+    <string name="question_4_answer_2" translatable="false">52</string>
+    <string name="question_4_answer_3" translatable="false">60</string>
     <string name="button_check_answers_label">Check answers</string>
     <string name="button_reset_answers_label">Reset answers</string>
     <string name="message_answer_all">Please answer to all questions!</string>

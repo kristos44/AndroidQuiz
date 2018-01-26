@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Quiz</string>
+    <string name="question_1">Jakie jest największe zwierzę na świecie?</string>
+    <string name="question_1_answer_1">Słoń</string>
+    <string name="question_1_answer_2">Płetwał błękitny</string>
+    <string name="question_1_answer_3">Nosorożec</string>
+    <string name="question_2">Jak wysoki jest Mount Everest w metrach?</string>
+    <string name="question_3">Zaznacz wszystkie europejskie miasta.</string>
+    <string name="question_3_answer_1">Warszawa</string>
+    <string name="question_3_answer_3">Wiedeń</string>
+    <string name="question_4">Ile gwiazdek znajduje się na amerykańskiej fladze?</string>
+    <string name="button_check_answers_label">Sprawdź odpowiedzi</string>
+    <string name="button_reset_answers_label">Resetuj odpowiedzi</string>
+    <string name="message_answer_all">Proszę odpowiedzieć na wszystkie pytania!</string>
+    <string name="message_scores">Twój wynik to <xliff:g id="scores">%d</xliff:g></string>
 </resources>
