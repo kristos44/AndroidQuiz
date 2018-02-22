@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -20,8 +19,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    int score = 0;
-    boolean questionNotAnswered = false;
+    private int score = 0;
+    private boolean questionNotAnswered = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
