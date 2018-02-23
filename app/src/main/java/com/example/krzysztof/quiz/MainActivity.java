@@ -32,40 +32,56 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putInt("question1State", getRadioGroupState(R.id.question_1));
-        outState.putString("question2State", getEditTextState(R.id.question_2_answer));
-        outState.putSerializable("question3State", (Serializable) getCheckBoxState(new ArrayList<>(Arrays.asList(R.id.question_3_answer_1, R.id.question_3_answer_2, R.id.question_3_answer_3))));
-        outState.putInt("question4State", getRadioGroupState(R.id.question_4));
+        outState.putInt("question1State", getRadioGroupState(R.id.rg_question_1));
+        outState.putString("question2State", getEditTextState(R.id.et_question_2_answer));
+        outState.putSerializable("question3State", (Serializable) getCheckBoxState(new ArrayList<>(Arrays.asList(R.id.cb_question_3_answer_1, R.id.cb_question_3_answer_2, R.id.cb_question_3_answer_3))));
+        outState.putInt("question4State", getRadioGroupState(R.id.rg_question_4));
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        restoreRadioGroupState(R.id.question_1, savedInstanceState.getInt("question1State"));
-        restoreEditTextState(R.id.question_2_answer, savedInstanceState.getString("question2State"));
+        restoreRadioGroupState(R.id.rg_question_1, savedInstanceState.getInt("question1State"));
+        restoreEditTextState(R.id.et_question_2_answer, savedInstanceState.getString("question2State"));
         restoreCheckBoxState((Map)savedInstanceState.getSerializable("question3State"));
-        restoreRadioGroupState(R.id.question_4, savedInstanceState.getInt("question4State"));
+        restoreRadioGroupState(R.id.rg_question_4, savedInstanceState.getInt("question4State"));
     }
 
     public void checkAnswers(View v) {
         questionNotAnswered = false;
 
-        checkRadioQuestion(R.id.question_1);
-        checkEditTextQuestion(R.id.question_2_answer, getResources().getString(R.string.question_2_correct_answer));
-        checkCheckboxQuestion(new ArrayList<>(Arrays.asList(R.id.question_3_answer_1, R.id.question_3_answer_2, R.id.question_3_answer_3)));
-        checkRadioQuestion(R.id.question_4);
+        checkRadioQuestion(R.id.rg_question_1);
+        checkEditTextQuestion(R.id.et_question_2_answer, getResources().getString(R.string.question_2_correct_answer));
+        checkCheckboxQuestion(new ArrayList<>(Arrays.asList(R.id.cb_question_3_answer_1, R.id.cb_question_3_answer_2, R.id.cb_question_3_answer_3)));
+        checkRadioQuestion(R.id.rg_question_4);
 
         if(questionNotAnswered) {
-            String message;
-            message = getResources().getString(R.string.message_answer_all);
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+//            String message;
+//            message = getResources().getString(R.string.message_answer_all);
+            Toast.makeText(this, getResources().getString(R.string.message_answer_all), Toast.LENGTH_SHORT).show();
         } else {
-            Intent intent = new Intent(this, ShareScoreActivity.class);
-            intent.putExtra("message_score", getResources().getString(R.string.message_score, score));
-            intent.putExtra("message_share_score", getResources().getString(R.string.message_share_score, score));
-            score = 0;
-            startActivity(intent);
+            Toast.makeText(this, getResources().getString(R.string.message_score, score), Toast.LENGTH_SHORT).show();
+
+            final MainActivity mainActivity = this;
+
+            Thread thread = new Thread(){
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(3500);
+                        Intent intent = new Intent(mainActivity, ShareScoreActivity.class);
+                        intent.putExtra("message_score", getResources().getString(R.string.message_score, score));
+                        intent.putExtra("message_share_score", getResources().getString(R.string.message_share_score, score));
+                        score = 0;
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+
+            thread.start();
         }
     }
 
