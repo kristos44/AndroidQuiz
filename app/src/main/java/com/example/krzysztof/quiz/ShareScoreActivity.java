@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by krzysztof on 26.01.18.
@@ -22,6 +23,8 @@ public class ShareScoreActivity extends AppCompatActivity {
 
         TextView textViewMessageScore = findViewById(R.id.message_score);
         textViewMessageScore.setText(messageScore);
+
+        Toast.makeText(this, messageScore, Toast.LENGTH_SHORT).show();
     }
 
     public void shareScore(View v) {

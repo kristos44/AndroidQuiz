@@ -57,31 +57,13 @@ public class MainActivity extends AppCompatActivity {
         checkRadioQuestion(R.id.rg_question_4);
 
         if(questionNotAnswered) {
-//            String message;
-//            message = getResources().getString(R.string.message_answer_all);
             Toast.makeText(this, getResources().getString(R.string.message_answer_all), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, getResources().getString(R.string.message_score, score), Toast.LENGTH_SHORT).show();
-
-            final MainActivity mainActivity = this;
-
-            Thread thread = new Thread(){
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(3500);
-                        Intent intent = new Intent(mainActivity, ShareScoreActivity.class);
-                        intent.putExtra("message_score", getResources().getString(R.string.message_score, score));
-                        intent.putExtra("message_share_score", getResources().getString(R.string.message_share_score, score));
-                        score = 0;
-                        startActivity(intent);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-
-            thread.start();
+            Intent intent = new Intent(this, ShareScoreActivity.class);
+            intent.putExtra("message_score", getResources().getString(R.string.message_score, score));
+            intent.putExtra("message_share_score", getResources().getString(R.string.message_share_score, score));
+            score = 0;
+            startActivity(intent);
         }
     }
 
